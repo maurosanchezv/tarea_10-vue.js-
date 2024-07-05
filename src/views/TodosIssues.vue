@@ -10,22 +10,24 @@
       <TodoItem 
         v-for="(todo, index) in todos" 
         :key="index" 
-        :todo="todo" 
+        :item="todo" 
         :index="index"
+        type="todo"
         @remove-todo="removeTodo"
+      />
+    </el-row>
+    <h1>lista de problemas</h1>
+    <el-button type="success" @click="getIssues">Obtener emisión</el-button>
+    <el-row :gutter="12">
+      <!-- zona de visualización de problemas -->
+      <TodoItem 
+        v-for="(issue, index) in issues" 
+        :key="issue.id" 
+        :item="issue" 
+        :index="index"
+        type="issue"
         @close-issue="closeIssue"
       />
-      <!-- zona de visualización de problemas -->
-      <el-col :span="12"  v-for="(issue, index) in issues" :key="issue.id">
-        <el-card class="box-card" shadow="hover" style="margin: 5px 0;">
-          <el-row :gutter="12">
-            <el-col :span="21">{{ issue.title }}</el-col>
-            <el-col :span="3">
-              <el-button @click="closeIssue(index)" type="success" icon="el-icon-check" circle></el-button>
-            </el-col>
-          </el-row>
-        </el-card>
-      </el-col>
     </el-row>
   </div>
 </template>
