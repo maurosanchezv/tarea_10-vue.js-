@@ -16,6 +16,7 @@
         @remove-todo="removeTodo"
       />
     </el-row>
+    
     <h1>lista de problemas</h1>
     <el-button type="success" @click="getIssues">Obtener emisión</el-button>
     <el-row :gutter="12">
